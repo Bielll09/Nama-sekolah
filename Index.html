@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sekolah Swasta di Samarinda</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(-45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            max-width: 680px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 0.6s ease-out, float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Partikel dekoratif */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float-particle 15s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) {
+            width: 10px;
+            height: 10px;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 12s;
+        }
+
+        .particle:nth-child(2) {
+            width: 15px;
+            height: 15px;
+            left: 20%;
+            animation-delay: 2s;
+            animation-duration: 14s;
+        }
+
+        .particle:nth-child(3) {
+            width: 8px;
+            height: 8px;
+            left: 40%;
+            animation-delay: 4s;
+            animation-duration: 16s;
+        }
+
+        .particle:nth-child(4) {
+            width: 12px;
+            height: 12px;
+            left: 60%;
+            animation-delay: 1s;
+            animation-duration: 13s;
+        }
+
+        .particle:nth-child(5) {
+            width: 10px;
+            height: 10px;
+            left: 80%;
+            animation-delay: 3s;
+            animation-duration: 15s;
+        }
+
+        @keyframes float-particle {
+            0%, 100% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+            }
+        }
+
+        h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 8px;
+            font-weight: 700;
+            animation: textGlow 3s ease-in-out infinite;
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes textGlow {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            font-weight: 400;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .link-wrapper {
+            width: 100%;
+        }
+
+        .link-button {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            border: 2px solid #e0e0e0;
+            padding: 22px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 0.5s ease-out backwards;
+            cursor: pointer;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .link-button:nth-child(1) { animation-delay: 0.1s; }
+        .link-button:nth-child(2) { animation-delay: 0.2s; }
+        .link-button:nth-child(3) { animation-delay: 0.3s; }
+        .link-button:nth-child(4) { animation-delay: 0.4s; }
+
+        /* Animasi shimmer */
+        .link-button:after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            transform: skewX(-20deg);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+            20%, 100% {
+                left: 200%;
+            }
+        }
+
+        .arrow {
+            margin-left: 10px;
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .arrow-small {
+            margin-left: auto;
+            font-size: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .submenu-wrapper {
+            width: 100%;
+        }
+
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            opacity: 0;
+            margin-top: -15px;
+        }
+
+        .submenu.active {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 0;
+        }
+
+        .submenu-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid #ff6b6b;
+            padding: 15px 28px 15px 45px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #555;
+            font-size: 16px;
+            font-weight: 500;
+            text-align: left;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            margin-left: 25px;
+            animation: slideInSubmenu 0.4s ease-out backwards;
+        }
+
+        .submenu-item:nth-child(1) { animation-delay: 0.1s; }
+        .submenu-item:nth-child(2) { animation-delay: 0.2s; }
+        .submenu-item:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes slideInSubmenu {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .submenu-item:before {
+            content: '→';
+            position: absolute;
+            left: 15px;
+            transition: left 0.3s ease;
+            color: #ff6b6b;
+        }
+
+        .submenu-item:hover {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+            border-left-color: #feca57;
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2);
+        }
+
+        .submenu-item:hover:before {
+            left: 18px;
+        }
+
+        .submenu-item span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .sub-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            opacity: 0;
+            margin-top: 0;
+            padding-left: 15px;
+        }
+
+        .sub-submenu.active {
+            max-height: 400px;
+            opacity: 1;
+            margin-top: 8px;
+        }
+
+        .sub-submenu-item {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 1px solid #e8e8e8;
+            border-left: 3px solid #feca57;
+            padding: 12px 20px 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: left;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            animation: slideInSubSubmenu 0.3s ease-out backwards;
+        }
+
+        .sub-submenu-item:nth-child(1) { animation-delay: 0.05s; }
+        .sub-submenu-item:nth-child(2) { animation-delay: 0.1s; }
+        .sub-submenu-item:nth-child(3) { animation-delay: 0.15s; }
+        .sub-submenu-item:nth-child(4) { animation-delay: 0.2s; }
+
+        @keyframes slideInSubSubmenu {
+            from {
+                opacity: 0;
+                transform: translateX(-15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .sub-submenu-item:before {
+            content: '•';
+            position: absolute;
+            left: 12px;
+            transition: left 0.3s ease;
+            color: #feca57;
+            font-size: 18px;
+        }
+
+        .sub-submenu-item:hover {
+            background: linear-gradient(135deg, #fffbf0 0%, #ffffff 100%);
+            border-left-color: #48dbfb;
+            transform: translateX(3px);
+            box-shadow: 0 3px 10px rgba(254, 202, 87, 0.2);
+        }
+
+        .sub-submenu-item:hover:before {
+            left: 14px;
+        }
+
+        .sub-submenu-item span {
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .link-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb);
+            transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 0;
+        }
+
+        .link-button:hover:before {
+            left: 0;
+        }
+
+        .link-button span {
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .link-button:hover {
+            border-color: #ff6b6b;
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5);
+        }
+
+        .link-button:hover span {
+            color: white;
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            25% {
+                transform: translateY(-5px);
+            }
+            50% {
+                transform: translateY(0);
+            }
+            75% {
+                transform: translateY(-2px);
+            }
+        }
+
+        .link-button:active {
+            transform: translateY(0) scale(0.95);
+            animation: ripple 0.6s ease-out;
+        }
+
+        @keyframes ripple {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+            }
+            100% {
+                box-shadow: 0 0 0 20px rgba(255, 107, 107, 0);
+            }
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #999;
+            font-size: 12px;
+            animation: fadeIn 2s ease-out 1s backwards;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .link-button {
+                padding: 20px 24px;
+                font-size: 17px;
+                min-height: 65px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Partikel dekoratif -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="logo">🏫</div>
+            <h1>SEKOLAH SWASTA DI SAMARINDA</h1>
+            <p class="subtitle">Pilihan Sekolah Berkualitas untuk Masa Depan Cemerlang</p>
+        </div>
+
+        <div class="links">
+            <a href="https://youtu.be/c7KQgrexArw?si=AHNvyH4x1bYysGZa" class="link-button" target="_blank">
+                <span>Cita Hati</span>
+            </a>
+            
+            <a href="https://youtu.be/Hv0Mmka8cR8?si=Zv5icTE6_bERBqwu" class="link-button" target="_blank">
+                <span>Sunodia</span>
+            </a>
+            
+            <a href="https://youtu.be/LjncGBiP_bs?si=zm4_1n5oHvXOqLeX" class="link-button" target="_blank">
+                <span>Citra Kasih</span>
+            </a>
+            
+
+            <a href="https://youtu.be/EbmZ72BwiPw?si=bzr3R3DgQjCrr5Ff" class="link-button" target="_blank">
+                <span>Asisi</span>
+            </a>
+        </div>
+
+        <div class="footer">
+            © 2024 Sekolah Swasta di Samarinda
+        </div>
+    </div>
+
+    <script>
+        function toggleSubmenu(event, submenuId) {
+            event.preventDefault();
+            const submenu = document.getElementById(submenuId);
+            const arrow = event.currentTarget.querySelector('.arrow');
+            
+            if (submenu.classList.contains('active')) {
+                submenu.classList.remove('active');
+                arrow.style.transform = 'rotate(0deg)';
+                // Close all sub-submenus inside
+                submenu.querySelectorAll('.sub-submenu').forEach(s => {
+                    s.classList.remove('active');
+                });
+                submenu.querySelectorAll('.arrow-small').forEach(a => {
+                    a.style.transform = 'rotate(0deg)';
+                });
+            } else {
+                // Close all other submenus
+                document.querySelectorAll('.submenu').forEach(s => {
+                    s.classList.remove('active');
+                    s.querySelectorAll('.sub-submenu').forEach(ss => {
+                        ss.classList.remove('active');
+                    });
+                });
+                document.querySelectorAll('.arrow').forEach(a => {
+                    a.style.transform = 'rotate(0deg)';
+                });
+                document.querySelectorAll('.arrow-small').forEach(a => {
+                    a.style.transform = 'rotate(0deg)';
+                });
+                
+                submenu.classList.add('active');
+                arrow.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        function toggleSubSubmenu(event, subSubmenuId) {
+            event.preventDefault();
+            event.stopPropagation();
+            const subSubmenu = document.getElementById(subSubmenuId);
+            const arrow = event.currentTarget.querySelector('.arrow-small');
+            
+            if (subSubmenu.classList.contains('active')) {
+                subSubmenu.classList.remove('active');
+                arrow.style.transform = 'rotate(0deg)';
+            } else {
+                // Close other sub-submenus in the same parent
+                const parent = subSubmenu.closest('.submenu');
+                parent.querySelectorAll('.sub-submenu').forEach(s => {
+                    if (s !== subSubmenu) {
+                        s.classList.remove('active');
+                    }
+                });
+                parent.querySelectorAll('.arrow-small').forEach(a => {
+                    if (a !== arrow) {
+                        a.style.transform = 'rotate(0deg)';
+                    }
+                });
+                
+                subSubmenu.classList.add('active');
+                arrow.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>
